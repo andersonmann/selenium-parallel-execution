@@ -55,15 +55,15 @@ verify that all dependencies of the project have been downloaded.
 You could execute the suite test (testng.xml), located at package "suite", or execute the test class, located at package "test".
 You can also running parallell tests, to this you must change the parameter thread-count, on testng.xlm
 
-The browser configured was Google Chrome, but you can change the browser, just change the parameter of the Properties class, located in the core package.
-Make sure that you have the driver for the selected browser.
+The browsers configured was Google Chrome adn Mozilla Firefox, but you can change the browser, just change the parameter (value="chrome" />) on testng.xlm.
+Make sure that you have the drivers for the selected browsers.
 
 After the test execution, are create screenshots files, to evidence the result. 
 They are stored at folder called screenshots.
 
 ### Purpose of the tests
 
-The tests created simulate a user creating a register, searching and deleting this register.
+The tests created simulate an search at google.
 Were explored different types of locators and strategies.
 
 ```
