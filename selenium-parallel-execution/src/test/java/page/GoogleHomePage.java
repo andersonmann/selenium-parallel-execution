@@ -24,23 +24,24 @@ public class GoogleHomePage extends BasePage {
 
 	@FindBy(name = "q")
 	@CacheLookup
-	public WebElement field;
+	public static WebElement field;
+
 	@FindBy(name = "btnK")
 	@CacheLookup
 	public WebElement button;
-	public void googleSearch(String text) {
+
+	public void googleSearch0(String text) {
 		field.sendKeys(text);
 		field.sendKeys(Keys.ENTER);
 	}
-	
+
 	public void googleSearch1(String text) {
 		write(field, text);
-		field.sendKeys(Keys.ENTER);		
+		field.sendKeys(Keys.ENTER);
 	}
-	
+
 	public void googleSearch2(String text) {
 		escrever(By.name("q"), text);
 		field.sendKeys(Keys.ENTER);
-		
 	}
 }

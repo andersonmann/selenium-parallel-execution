@@ -3,7 +3,6 @@ package test;
 import org.testng.annotations.Test;
 
 import core.BaseTest;
-import core.BrowserFactory;
 import page.GoogleHomePage;
 
 public class GoogleSearchTest extends BaseTest {
@@ -11,7 +10,7 @@ public class GoogleSearchTest extends BaseTest {
 	@Test(priority = 0)
 	public void searchOnGoogle0() {
 		GoogleHomePage googleHome = new GoogleHomePage(driver);
-		googleHome.googleSearch("Anderson Mann");
+		googleHome.googleSearch0("Anderson Mann");
 	}
 
 	@Test(priority = 1)

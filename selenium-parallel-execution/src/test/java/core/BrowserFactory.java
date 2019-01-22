@@ -9,7 +9,7 @@ import org.testng.annotations.Parameters;
 
 public class BrowserFactory {
 	final static String url = "https://www.google.com.br/";
-	public static WebDriver driver;
+	protected static WebDriver driver;
 
 	@Parameters("browser")
 	@BeforeMethod

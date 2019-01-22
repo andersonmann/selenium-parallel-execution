@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class BasePage extends PageObject {
 
-	public BasePage(WebDriver driver) {
+	protected BasePage(WebDriver driver) {
 		super(driver);
 	}
 
@@ -48,6 +48,16 @@ public class BasePage extends PageObject {
 			WebDriverWait wait = new WebDriverWait(driver, 10);
 			wait.until(ExpectedConditions.presenceOfElementLocated(by));
 			driver.findElement(by).sendKeys(text);
+		} catch (Exception e) {
+			throw new NoSuchElementException("Element not found: " + e.getMessage());
+		}
+	}
+
+	public void click(By by) throws NoSuchElementException {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, 15);
+			wait.until(ExpectedConditions.presenceOfElementLocated(by));
+			driver.findElement(by).click();
 		} catch (Exception e) {
 			throw new NoSuchElementException("Element not found: " + e.getMessage());
 		}
