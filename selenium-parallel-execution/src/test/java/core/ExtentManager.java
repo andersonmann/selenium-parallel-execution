@@ -11,7 +11,7 @@ import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 /**
- * @author anderson.mann
+ * @author anderson
  *
  */
 public class ExtentManager {
