@@ -10,7 +10,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
+import com.aventstack.extentreports.Status;
+
 import core.BasePage;
+import core.ExtentTestManager;
 
 /**
  * @author anderson.mann
@@ -31,6 +34,7 @@ public class GoogleHomePage extends BasePage {
 	public WebElement button;
 
 	public void googleSearch0(String text) {
+
 		field.sendKeys(text);
 		field.sendKeys(Keys.ENTER);
 	}
@@ -41,7 +45,8 @@ public class GoogleHomePage extends BasePage {
 	}
 
 	public void googleSearch2(String text) {
-		escrever(By.name("q"), text);
+		ExtentTestManager.getTest().log(Status.INFO, "Hellooo page class");
+		escrever(By.name("qa"), text);
 		field.sendKeys(Keys.ENTER);
 	}
 }

@@ -6,14 +6,18 @@ package core;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.Date;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.io.FileHandler;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 
@@ -22,6 +26,8 @@ import com.aventstack.extentreports.Status;
  *
  */
 public class TestListener implements ITestListener {
+
+	private static ExtentTest test;
 
 	public void onStart(ITestContext context) {
 		System.out.println("*** Test Suite " + context.getName() + " started ***");
@@ -46,9 +52,12 @@ public class TestListener implements ITestListener {
 	public void onTestFailure(ITestResult result) {
 		System.out.println("*** Test execution " + result.getMethod().getMethodName() + " failed...");
 		ExtentTestManager.getTest().log(Status.FAIL, "Test Failed");
-		
-		
-//		log.info("*** Test execution " + result.getMethod().getMethodName() + " failed...");
+	}
+
+//		System.out.println("*** Test execution " + result.getMethod().getMethodName() + " failed...");
+//		ExtentTestManager.getTest().log(Status.FAIL, "Test Failed");
+
+//		ExtentTest log;
 //		log.info((result.getMethod().getMethodName() + " failed!"));
 //
 //		ITestContext context = result.getTestContext();
@@ -56,8 +65,15 @@ public class TestListener implements ITestListener {
 //
 //		String targetLocation = null;
 //
+//		Date date = new Date();
+//		long time = date.getTime();
+//		//Timestamp timeStamp = new Timestamp(time);
+//
 //		String testClassName = getTestClassName(result.getInstanceName()).trim();
-//		String timeStamp = Util.getCurrentTimeStamp(); // get timestamp
+//		//String timeStamp = Util.getCurrentTimeStamp(); // get timestamp
+//		
+//		Timestamp timeStamp = new Timestamp(time);
+//		
 //		String testMethodName = result.getName().toString().trim();
 //		String screenShotName = testMethodName + timeStamp + ".png";
 //		String fileSeperator = System.getProperty("file.separator");
@@ -99,6 +115,12 @@ public class TestListener implements ITestListener {
 //			log.info("An exception occured while taking screenshot " + e.getCause());
 //		}
 //		ExtentTestManager.getTest().log(Status.FAIL, "Test Failed");
+
+	public String getTestClassName(String testName) {
+		String[] reqTestClassname = testName.split("\\.");
+		int i = reqTestClassname.length - 1;
+		System.out.println("Required Test Name : " + reqTestClassname[i]);
+		return reqTestClassname[i];
 	}
 
 	public void onTestSkipped(ITestResult result) {
@@ -109,5 +131,4 @@ public class TestListener implements ITestListener {
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		System.out.println("*** Test failed but within percentage % " + result.getMethod().getMethodName());
 	}
-
 }

@@ -12,10 +12,10 @@
 			<class name="test.GoogleSearchTest" />
 		</classes>
 	</test>
-	<test name="FireFox">
+	<!-- <test name="FireFox">
 		<parameter name="browser" value="firefox" />
 		<classes>
 			<class name="test.GoogleSearchTest" />
 		</classes>
-	</test>
+	</test> -->
 </suite>
