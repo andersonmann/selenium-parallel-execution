@@ -63,11 +63,11 @@ They are stored at folder called screenshots.
 
 ### Purpose of the tests
 
-The tests created simulate an search at google.
-Were explored different types of locators and strategies.
+
 
 ```
-Creation the customer register using differents informations.
+The tests created simulate an search at google.
+Were explored different types of locators and strategies.
 ```
 
 ### Design Pattern
