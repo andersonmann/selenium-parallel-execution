@@ -13,7 +13,7 @@ import org.openqa.selenium.support.FindBy;
 import com.aventstack.extentreports.Status;
 
 import core.BasePage;
-import core.ExtentTestManager;
+import util.ExtentTestManager;
 
 /**
  * @author anderson.mann
@@ -45,8 +45,9 @@ public class GoogleHomePage extends BasePage {
 	}
 
 	public void googleSearch2(String text) {
-		ExtentTestManager.getTest().log(Status.INFO, "Hellooo page class");
 		escrever(By.name("qa"), text);
+		ExtentTestManager.getTest().log(Status.INFO, "Hellooo page class");
 		field.sendKeys(Keys.ENTER);
+		ExtentTestManager.getTest().log(Status.INFO, "Hellooo page class");
 	}
 }
